@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard LMB 22 Junio 2026</title>
+<style>
+body{font-family:Arial,sans-serif;margin:0;padding:10px;background:#f4f4f4}
+h1{text-align:center;color:#003876;margin:10px 0}
+.tabs{display:flex;gap:5px;margin:10px 0}
+.tab{flex:1;padding:10px;background:#003876;color:white;border:none;cursor:pointer}
+.tab.active{background:#C8102E}
+.content{display:none}
+.content.active{display:block}
+table{width:100%;border-collapse:collapse;font-size:12px;margin:10px 0;background:white}
+th,td{border:1px solid #ddd;padding:6px;text-align:center}
+th{background:#003876;color:white;position:sticky;top:0}
+.norte{background:#e6f0ff}.sur{background:#ffe6e6}
+.fav{background:#d4edda}.dog{background:#f8d7da}
+.chart{width:100%;height:300px;margin:20px 0}
+.filtros{display:flex;gap:5px;margin:10px 0;flex-wrap:wrap}
+.filtros button{padding:8px 12px;border:none;background:#C8102E;color:white;border-radius:4px}
+</style>
+</head>
+<body>
+<h1>Dashboard LMB - 22 Junio 2026</h1>
+<div class="tabs">
+<button class="tab active" onclick="showTab('equipos')">Equipos</button>
+<button class="tab" onclick="showTab('bateo')">Líderes Bateo</button>
+<button class="tab" onclick="showTab('pitcheo')">Líderes Pitcheo</button>
+<button class="tab" onclick="showTab('grafica')">Gráfica CA/CR</button>
+</div>
+
+<div id="equipos" class="content active">
+<div class="filtros">
+<button onclick="filterZona('all')">Todos</button>
+<button onclick="filterZona('norte')">Solo Norte</button>
+<button onclick="filterZona('sur')">Solo Sur</button>
+<button onclick="filterZona('hoy')">Juegos Hoy</button>
+</div>
+<h2>Zona Norte</h2>
+<table id="tablaNorte">
+<tr><th>Equipo</th><th>JG</th><th>JP</th><th>PCT</th><th>AVG</th><th>ERA</th><th>HR</th><th>BR</th><th>CA</th><th>CR</th><th>Rival Hoy</th><th>Prob G</th></tr>
+<tr class="norte hoy"><td>Tijuana</td><td>38</td><td>16</td><td>.704</td><td>.312</td><td>4.52</td><td>71</td><td>61</td><td>342</td><td>268</td><td>vs Tabasco</td><td class="fav">60.5%</td></tr>
+<tr class="norte hoy"><td>Jalisco</td><td>30</td><td>25</td><td>.545</td><td>.295</td><td>5.21</td><td>62</td><td>38</td><td>298</td><td>301</td><td>vs Oaxaca</td><td class="dog">45.6%</td></tr>
+<tr class="norte hoy"><td>Monterrey</td><td>29</td><td>25</td><td>.537</td><td>.298</td><td>4.89</td><td>58</td><td>42</td><td>304</td><td>289</td><td>@ México</td><td class="dog">40.5%</td></tr>
+<tr class="norte hoy"><td>Monclova</td><td>29</td><td>26</td><td>.527</td><td>.301</td><td>4.95</td><td>64</td><td>35</td><td>311</td><td>298</td><td>@ Campeche</td><td class="fav">58.5%</td></tr>
+<tr class="norte hoy"><td>Durango</td><td>27</td><td>26</td><td>.509</td><td>.289</td><td>5.67</td><td>51</td><td>29</td><td>287</td><td>315</td><td>vs Querétaro</td><td class="fav">50.9%</td></tr>
+<tr class="norte hoy"><td>Aguascalientes</td><td>24</td><td>30</td><td>.444</td><td>.316</td><td>5.91</td><td>49</td><td>51</td><td>296</td><td>334</td><td>vs Puebla</td><td class="dog">41.7%</td></tr>
+<tr class="norte hoy"><td>Unión Laguna</td><td>23</td><td>32</td><td>.418</td><td>.276</td><td>6.07</td><td>32</td><td>44</td><td>320</td><td>361</td><td>vs Yucatán</td><td class="fav">53.1%</td></tr>
+<tr class="norte hoy"><td>Dos Laredos</td><td>22</td><td>32</td><td>.407</td><td>.287</td><td>6.12</td><td>47</td><td>33</td><td>281</td><td>352</td><td>vs Veracruz</td><td class="dog">48.2%</td></tr>
+<tr class="norte hoy"><td>Saltillo</td><td>20</td><td>32</td><td>.385</td><td>.282</td><td>6.45</td><td>41</td><td>28</td><td>264</td><td>368</td><td>vs León</td><td class="dog">34.0%</td></tr>
+<tr class="norte hoy"><td>Chihuahua</td><td>21</td><td>34</td><td>.382</td><td>.289</td><td>5.87</td><td>45</td><td>31</td><td>279</td><td>341</td><td>@ Quintana Roo</td><td class="dog">38.8%</td></tr>
+</table>
+<h2>Zona Sur</h2>
+<table id="tablaSur">
+<tr><th>Equipo</th><th>JG</th><th>JP</th><th>PCT</th><th>AVG</th><th>ERA</th><th>HR</th><th>BR</th><th>CA</th><th>CR</th><th>Rival Hoy</th><th>Prob G</th></tr>
+<tr class="sur hoy"><td>México</td><td>35</td><td>20</td><td>.636</td><td>.318</td><td>6.39</td><td>116</td><td>52</td><td>655</td><td>389</td><td>vs Monterrey</td><td class="fav">59.5%</td></tr>
+<tr class="sur hoy"><td>Tabasco</td><td>34</td><td>21</td><td>.618</td><td>.307</td><td>4.78</td><td>73</td><td>49</td><td>334</td><td>281</td><td>@ Tijuana</td><td class="dog">39.5%</td></tr>
+<tr class="sur hoy"><td>Oaxaca</td><td>32</td><td>23</td><td>.582</td><td>.299</td><td>4.91</td><td>89</td><td>46</td><td>329</td><td>296</td><td>vs Jalisco</td><td class="fav">54.4%</td></tr>
+<tr class="sur hoy"><td>León</td><td>30</td><td>25</td><td>.545</td><td>.294</td><td>5.15</td><td>68</td><td>39</td><td>305</td><td>312</td><td>@ Saltillo</td><td class="fav">66.0%</td></tr>
+<tr class="sur hoy"><td>Puebla</td><td>29</td><td>26</td><td>.527</td><td>.291</td><td>5.33</td><td>59</td><td>36</td><td>293</td><td>308</td><td>@ Aguascalientes</td><td class="fav">58.3%</td></tr>
+<tr class="sur hoy"><td>Querétaro</td><td>27</td><td>27</td><td>.500</td><td>.311</td><td>5.44</td><td>81</td><td>41</td><td>322</td><td>319</td><td>@ Durango</td><td class="dog">49.1%</td></tr>
+<tr class="sur hoy"><td>Quintana Roo</td><td>25</td><td>28</td><td>.472</td><td>.288</td><td>5.78</td><td>55</td><td>34</td><td>278</td><td>325</td><td>vs Chihuahua</td><td class="fav">61.2%</td></tr>
+<tr class="sur hoy"><td>Campeche</td><td>23</td><td>29</td><td>.442</td><td>.285</td><td>6.21</td><td>48</td><td>30</td><td>271</td><td>344</td><td>vs Monclova</td><td class="dog">41.5%</td></tr>
+<tr class="sur hoy"><td>Veracruz</td><td>23</td><td>30</td><td>.434</td><td>.292</td><td>5.95</td><td>52</td><td>37</td><td>285</td><td>337</td><td>@ Dos Laredos</td><td class="fav">51.8%</td></tr>
+<tr class="sur hoy"><td>Yucatán</td><td>20</td><td>34</td><td>.370</td><td>.284</td><td>6.08</td><td>44</td><td>27</td><td>269</td><td>359</td><td>@ Unión Laguna</td><td class="dog">46.9%</td></tr>
+</table>
+</div>
+
+<div id="bateo" class="content">
+<h2>Líderes de Bateo 2026 al 19 Junio</h2>
+<table>
+<tr><th>#</th><th>Jugador</th><th>Equipo</th><th>AVG</th><th>HR</th><th>RBI</th><th>H</th><th>BR</th></tr>
+<tr><td>1</td><td>R. Ramos</td><td>MEX</td><td>.392</td><td>28</td><td>71</td><td>78</td><td>3</td></tr>
+<tr><td>2</td><td>A. Rivero</td><td>AGS</td><td>.378</td><td>11</td><td>44</td><td>82</td><td>18</td></tr>
+<tr><td>3</td><td>Y. Drake</td><td>YUC</td><td>.365</td><td>14</td><td>51</td><td>73</td><td>12</td></tr>
+<tr><td>4</td><td>C. Adames</td><td>TIJ</td><td>.359</td><td>19</td><td>62</td><td>75</td><td>21</td></tr>
+<tr><td>5</td><td>J. Ornelas</td><td>MTY</td><td>.354</td><td>16</td><td>58</td><td>79</td><td>9</td></tr>
+</table>
+</div>
+
+<div id="pitcheo" class="content">
+<h2>Líderes de Pitcheo 2026 al 19 Junio</h2>
+<table>
+<tr><th>#</th><th>Jugador</th><th>Equipo</th><th>ERA</th><th>G-P</th><th>SV</th><th>K</th><th>IP</th></tr>
+<tr><td>1</td><td>T. Stankiewicz</td><td>TIJ</td><td>2.41</td><td>7-1</td><td>0</td><td>68</td><td>71.0</td></tr>
+<tr><td>2</td><td>Y. Negrín</td><td>TAB</td><td>2.89</td><td>6-2</td><td>0</td><td>59</td><td>65.1</td></tr>
+<tr><td>3</td><td>M. Devine</td><td>OAX</td><td>3.12</td><td>5-2</td><td>0</td><td>62</td><td>60.2</td></tr>
+<tr><td>4</td><td>N. Kingham</td><td>MTY</td><td>3.28</td><td>6-3</td><td>0</td><td>71</td><td>68.2</td></tr>
+<tr><td>5</td><td>J. Martínez</td><td>LEO</td><td>0-0</td><td>14</td><td>3.41</td><td>31</td><td>31.2</td></tr>
+</table>
+</div>
+
+<div id="grafica" class="content">
+<h2>Carreras Anotadas vs Recibidas</h2>
+<canvas id="chartCA" class="chart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+function showTab(id){
+document.querySelectorAll('.content').forEach(e=>e.classList.remove('active'));
+document.querySelectorAll('.tab').forEach(e=>e.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+event.target.classList.add('active');
+if(id=='grafica') loadChart();
+}
+function filterZona(z){
+document.querySelectorAll('#tablaNorte tr, #tablaSur tr').forEach((r,i)=>{
+if(i==0) return;
+if(z=='all') r.style.display='';
+else if(z=='norte') r.style.display=r.classList.contains('norte')?'':'none';
+else if(z=='sur') r.style.display=r.classList.contains('sur')?'':'none';
+else if(z=='hoy') r.style.display=r.classList.contains('hoy')?'':'none';
+});
+}
+function loadChart(){
+new Chart(document.getElementById('chartCA'),{
+type:'bar',
+data:{
+labels:['MEX','TIJ','TAB','OAX','LEO','JAL','MTY','MVA','PUE','QRO','DUR','UL','QR','AGS','CAM','VER','TIG','LAR','SL','CHIH'],
+datasets:[
+{label:'CA',data:[655,342,334,329,305,298,304,311,293,322,287,320,278,296,271,285,278,281,264,279],backgroundColor:'#C8102E'},
+{label:'CR',data:[389,268,281,296,312,301,289,298,308,319,315,361,325,334,344,337,325,352,368,341],backgroundColor:'#003876'}
+]},
+options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top'}}}
+});
+}
+</script>
+</body>
+</html>
